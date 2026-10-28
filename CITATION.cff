@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Cite this repository as the feasibility prototype for the Kamloops FBP priority project."
+title: "Kamloops FBP Priority Mapping"
+abstract: >-
+  A reproducible Fire Behaviour Prediction screening workflow for the Kamloops
+  Fire Centre, built to scope Leah Nash's MGEM fuel-treatment priority mapping
+  project.
+authors:
+  - family-names: "Nash"
+    given-names: "Leah"
+  - name: "UBC FRESH Lab"
+version: "0.1.0"
+date-released: "2026-10-28"
+license: MIT

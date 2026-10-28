@@ -119,4 +119,33 @@ Record the result in the changelog entry for the milestone.
 
 ## Project-specific rules
 
-Add domain guardrails here, each with its reason. Keep shared workflow rules out of this section.
+- **Study area and test zones.** The AOI is the Kamloops Fire Centre, 71,579 km². The method test uses
+  ICH, IDF, and PP (34,778 km²). Do not describe a result from the three zones as a KFC-wide result.
+- **CRS and units.** All analysis rasters are NAD83 / BC Albers (EPSG:3005). ROS is m/min, HFI is
+  kW/m, flame length is m, CFB is a fraction, and fuel consumption is kg/m². State the units in every
+  table and figure.
+- **Data provenance.** Raw data lives under ignored `data/raw/` and is fetched by script; every fetch
+  writes a manifest. Never commit raw data, credentials, or a machine-specific path. Record the
+  dataset version, licence, and access date in the thesis appendix.
+- **Weather assumptions are explicit.** ClimateBC publishes monthly means and no wind. The prototype
+  uses a fixed 20 km/h wind, a fixed 225° direction, and a 62-day mean-summer spin-up. These are
+  ADR 0002 assumptions, not observations. Do not present the prototype as a real fire-weather day.
+- **Fuel crosswalk is a decision.** The BC layer uses grouped and modifier-prefixed codes. Normalize
+  `B<digits>_` prefixes, and keep the grouped-code choices in ADR 0003. A changed choice is a
+  sensitivity run, not a silent edit.
+- **Resolution is not a quality claim.** The prototype uses 100 m for the method comparison and 4 km
+  for FWI. The proposal's 30 m target needs an effective-resolution table and a chunked production
+  run. Do not describe interpolated 30 m climate as 30 m information.
+- **Research integrity.** The LiDAR/VRI fuel-typing experiment is the thesis contribution; the
+  provincial fuel-type layer is only the baseline. Do not claim an improved fuel map until the BCWS
+  algorithm permission, input schema, and version are recorded.
+- **Analysis and production code.** `scripts/` is the seed's gated framework. `analysis/` is
+  prototype code: it is linted and tested where practical, but it is not yet coverage-gated. Promote
+  vetted functions into a package and add them to the gate before a public release.
+- **R environment.** The R path uses `cffdrs` 1.9.2 in `.conda/envs/fbp`, which is ignored by git.
+  The wrappers `analysis/run_fwi.sh` and `analysis/run_fbp.sh` set `PROJ_DATA` and `GDAL_DATA`.
+  Recreate the environment from the README before running the R steps.
+- **GitHub access.** The repository is intended to be private under `UBC-FRESH/kamloops-fbp-priority`.
+  Until `gh auth status` succeeds, keep the issue-tree manifest current in
+  `notes/scope/github-issue-tree.md`; do not describe the GitHub side as done.
+
