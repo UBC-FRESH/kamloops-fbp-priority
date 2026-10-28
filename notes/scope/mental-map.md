@@ -336,7 +336,8 @@ pretend the ICH coverage is adequate.
 - No climate-change scenarios.
 - No final 10-class/WUI rule; the prototype's priorities are provisional.
 - No 30 m full-KFC run; the 100 m run is the method prototype.
-- No GitHub repository or issues yet; the local repository is seeded and on the Phase 0 branch.
+- The private GitHub repository and Phase 0 issues now exist; the work is on
+  `feature/p0-bootstrap` and is not merged to `main`.
 
 ## 11. Reproducibility
 

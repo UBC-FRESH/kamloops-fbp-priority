@@ -1,6 +1,6 @@
 Task identifier: P0.4
-Parent phase issue: #TBD
-Status: planned
+Parent phase issue: #1
+Status: active
 Branch: `feature/p0-bootstrap`
 Related planning: `ROADMAP.md` (Phase 0)
 

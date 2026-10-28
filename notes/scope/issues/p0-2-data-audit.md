@@ -1,6 +1,6 @@
 Task identifier: P0.2
-Parent phase issue: #TBD
-Status: planned
+Parent phase issue: #1
+Status: active
 Branch: `feature/p0-bootstrap`
 Related planning: `ROADMAP.md` (Phase 0), `notes/scope/data-audit.md`
 

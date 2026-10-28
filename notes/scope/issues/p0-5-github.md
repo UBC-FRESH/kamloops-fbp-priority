@@ -1,6 +1,6 @@
 Task identifier: P0.5
-Parent phase issue: #TBD
-Status: planned
+Parent phase issue: #1
+Status: complete
 Branch: `feature/p0-bootstrap`
 Related planning: `ROADMAP.md` (Phase 0), `notes/scope/github-issue-tree.md`
 
@@ -23,12 +23,12 @@ Out of scope:
 
 Subtasks:
 
-- [ ] Authenticate `gh`.
-- [ ] Create the private repository and push both branches.
-- [ ] Create the parent issue from `notes/scope/issues/p0-parent.md`.
-- [ ] Create the five child issues and link them as sub-issues.
-- [ ] Set the parent number and status in `ROADMAP.md`.
-- [ ] Post the activation comment and read it back.
+- [x] Authenticate `gh`.
+- [x] Create the private repository and push both branches.
+- [x] Create the parent issue from `notes/scope/issues/p0-parent.md`.
+- [x] Create the five child issues and link them as sub-issues.
+- [x] Set the parent number and status in `ROADMAP.md`.
+- [x] Post the activation comment and read it back.
 
 Acceptance criteria:
 
@@ -51,5 +51,6 @@ Artifacts:
 
 Risks:
 
-The environment has no GitHub credentials. Do not fake the GitHub side; keep the manifest current
-until authentication is available.
+GitHub authentication was unavailable during the first session. It was resolved before the
+repository was created; do not commit credentials. The repository is private and no settings,
+visibility, or branch protection changes were made.

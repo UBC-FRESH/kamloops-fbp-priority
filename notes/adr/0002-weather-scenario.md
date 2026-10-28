@@ -2,7 +2,7 @@
 
 Status: proposed; must be resolved in P1.1
 Date: 2026-10-28
-Issues: TBD
+Issues: #1
 
 ## Context
 

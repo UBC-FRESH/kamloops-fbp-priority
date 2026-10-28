@@ -2,7 +2,7 @@
 
 Status: proposed; confirm in P1.3
 Date: 2026-10-28
-Issues: TBD
+Issues: #1
 
 ## Context
 

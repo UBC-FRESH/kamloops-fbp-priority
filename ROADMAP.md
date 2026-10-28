@@ -12,7 +12,7 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and feasibility speed run | TBD | `feature/p0-bootstrap` | planned |
+| P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | active |
 | P1 Method contract | TBD | `feature/p1-method-contract` | planned |
 | P2 Baseline KFC fire behaviour | TBD | `feature/p2-baseline-kfc` | planned |
 | P3 LiDAR and VRI fuel typing | TBD | `feature/p3-lidar-vri` | planned |
@@ -42,9 +42,9 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 
 ## Phase 0: Bootstrap and feasibility speed run
 
-Parent issue: TBD
+Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: planned
+Status: active
 
 Goal: stand up the project on the UBC-FRESH seed, audit every named dataset, and run a real baseline
 FBP chain for the KFC and the three test BEC zones so the scope and scale of Leah's project are
@@ -69,10 +69,10 @@ concrete rather than hypothetical.
   - [ ] `notes/scope/mental-map.md` with findings, timeline, and decisions
   - [ ] `notes/scope/data-audit.md` with source, size, resolution, and quirks
   - [ ] ADRs for the weather scenario, fuel crosswalk, and resolution
-- [ ] P0.5 Create the private GitHub repository and Phase 0 issues (blocked on authentication)
-  - [ ] Render and push the seed to `UBC-FRESH/kamloops-fbp-priority`
-  - [ ] Create the P0 parent issue and child issues as sub-issues
-  - [ ] Activate P0 and post the activation comment
+- [x] P0.5 Create the private GitHub repository and Phase 0 issues
+  - [x] Render and push the seed to `UBC-FRESH/kamloops-fbp-priority`
+  - [x] Create the P0 parent issue and child issues as sub-issues
+  - [x] Activate P0 and post the activation comment
 
 Acceptance criteria:
 
@@ -222,10 +222,11 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. The local repository is rendered from `UBC-FRESH/ubc-fresh-dev-workflow` and is on
-   `feature/p0-bootstrap`. The private GitHub repository has not been created because this
-   environment has no `gh` CLI and no GitHub credentials. The issue-tree manifest and exact commands
-   are in `notes/scope/github-issue-tree.md`.
+1. The repository is rendered from `UBC-FRESH/ubc-fresh-dev-workflow` and is on
+   `feature/p0-bootstrap`. The private repository is
+   https://github.com/UBC-FRESH/kamloops-fbp-priority; the Phase 0 parent issue is #1 and the task
+   issues are #2-#6. The work is not merged to `main` until the phase close-out is approved. The
+   issue map and verification commands are in `notes/scope/github-issue-tree.md`.
 2. The 100 m baseline pipeline is built. It uses real BC Data Catalogue layers, real ClimateBC
    2014-2023 July/August means, a 30 m Copernicus DEM, the official `cffdrs` 1.9.2 `fwiRaster` and
    `fbpRaster`, and the BCWS WUI layers. Raw data is under ignored `data/raw/`; derived rasters are

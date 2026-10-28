@@ -2,7 +2,7 @@
 
 Status: proposed for the Phase 0 close-out
 Date: 2026-10-28
-Issues: TBD
+Issues: #1
 
 ## Context
 

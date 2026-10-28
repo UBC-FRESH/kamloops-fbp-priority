@@ -2,7 +2,7 @@
 
 Status: proposed; confirm with BCWS in P1.2
 Date: 2026-10-28
-Issues: TBD
+Issues: #1
 
 ## Context
 

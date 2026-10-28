@@ -15,37 +15,16 @@ Dashboard: green (lint, format, strict types, tests, validator, docs)
 - The 100 m three-zone FBP result and the 200 m KFC overview are reproducible from the scripts.
 - The green dashboard passes on the branch.
 
-## What is blocked
+## GitHub (resolved)
 
-The private GitHub repository was not created. `gh` is installed at `~/.local/bin/gh`, but no
-GitHub account is authenticated. Two device-flow codes expired before authorization. There is no
-`GITHUB_TOKEN`, SSH key, or credential helper in the environment.
+The private repository now exists at https://github.com/UBC-FRESH/kamloops-fbp-priority. `main` has
+the seed commit and `feature/p0-bootstrap` has the Phase 0 work. The parent issue is #1; the child
+issues are #2-#6 and are linked as sub-issues. P0.5 (#6) is complete; P0.1-P0.4 remain open until
+the Phase 0 close-out pull request is approved.
 
-To finish the GitHub step:
-
-```bash
-cd kamloops-fbp-priority
-~/.local/bin/gh auth login --hostname github.com --git-protocol https --web
-~/.local/bin/gh auth status
-```
-
-Then:
-
-```bash
-~/.local/bin/gh repo create UBC-FRESH/kamloops-fbp-priority --private --source=. --remote=origin
-git push -u origin main
-git push -u origin feature/p0-bootstrap
-~/.local/bin/gh repo edit UBC-FRESH/kamloops-fbp-priority --default-branch main
-```
-
-Create the Phase 0 issues from `notes/scope/issues/` and link the children as sub-issues. The exact
-commands and titles are in `notes/scope/github-issue-tree.md`. After the issues exist, set the parent
-number and `Status: active` in `ROADMAP.md` and the tracker map. Do not mark the phase active before
-the issues exist.
-
-If the authenticated account cannot create a repository in `UBC-FRESH`, create it under the
-authenticated account, record the transfer step, and do not change visibility or settings without a
-separate approval.
+The first session's device-flow codes expired before authorization. The maintainer authenticated
+separately; no credentials are stored in the repository. The issue map and verification commands are
+in `notes/scope/github-issue-tree.md`.
 
 ## Next technical move
 
@@ -53,6 +32,9 @@ P1.1: decide the weather method. The current mean-summer scenario uses ClimateBC
 fixed 20 km/h wind, and a 62-day FWI spin-up. Add a daily wind/daily-weather source (ERA5-Land or
 BCWS stations) or explicitly accept the mean-summer scenario. Do not start LiDAR processing until
 this and the BCWS fuel-typing algorithm access are settled.
+
+The Phase 0 close-out move is separate: open the pull request from `feature/p0-bootstrap`, write the
+report under `notes/reports/`, and wait for maintainer approval before merging or closing #1.
 
 ## Reproduce the baseline
 

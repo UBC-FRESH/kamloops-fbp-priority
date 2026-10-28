@@ -1,6 +1,6 @@
 Task identifier: P0.3
-Parent phase issue: #TBD
-Status: planned
+Parent phase issue: #1
+Status: active
 Branch: `feature/p0-bootstrap`
 Related planning: `ROADMAP.md` (Phase 0), `notes/adr/0001-python-prep-r-cffdrs.md`
 
