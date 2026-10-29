@@ -69,6 +69,19 @@ Per-zone tables: `docs/tables/open_vs_provincial_ICH.csv`, `..._IDF.csv`, `..._P
 table is `docs/tables/open_vs_provincial_fuel_types_three_zones.csv`; the summary is
 `docs/tables/open_vs_provincial_agreement_by_zone.csv`.
 
+## LiDAR candidates for the same boxes
+
+The three sample boxes are fully covered by LidarBC point-cloud tiles at 8 points/m²:
+
+| Zone | Tiles intersecting the box | Acquisition years | Box coverage |
+| --- | ---: | --- | ---: |
+| ICH | 13 | 2024 | 100% |
+| IDF | 15 | 2017, 2024, 2025 | 100% |
+| PP | 22 | 2017, 2024 | 100% |
+
+The candidate tiles are listed in `docs/tables/lidar_candidates_three_zones.csv`. This means the
+same boxes can carry the P3 LiDAR pilot without changing the study design.
+
 ## What this changes
 
 - The provincial decision tree can be run without BCWS permission.

@@ -63,6 +63,10 @@ overrides on the same sample boxes.
 Scripts: `analysis/run_open_fuel_typing_sample.py`, `analysis/compare_open_vs_provincial.py`.
 Tables: `docs/tables/open_vs_provincial_agreement_by_zone.csv` and the per-zone CSV files.
 
+The same three sample boxes are fully covered by LidarBC point-cloud tiles at 8 points/m² (ICH 13
+tiles/2024; IDF 15 tiles/2017, 2024, 2025; PP 22 tiles/2017, 2024). Candidates are in
+`docs/tables/lidar_candidates_three_zones.csv`; the P3 LiDAR pilot can use these boxes directly.
+
 Risks:
 
 The open tool implements the 2018 decision tree, not the current BCWS version. VRI attributes are
