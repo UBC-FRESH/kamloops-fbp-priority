@@ -68,9 +68,12 @@ def main() -> int:
     parser.add_argument("--vri", type=Path, required=True)
     parser.add_argument("--provincial", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--zone", type=str, default=None, help="Optional zone label.")
     args = parser.parse_args()
 
     joined = compare(args.vri, args.provincial)
+    if args.zone is not None:
+        joined["ZONE"] = args.zone
     valid = joined.dropna(subset=["FUEL_TYPE_OPEN_NORM", "FUEL_TYPE_PROV_NORM"])
     agreement = float((valid["FUEL_TYPE_OPEN_NORM"] == valid["FUEL_TYPE_PROV_NORM"]).mean())
 
@@ -79,6 +82,7 @@ def main() -> int:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     columns = [
+        "ZONE",
         "FEATURE_ID",
         "POLYGON_ID",
         "FUEL_TYPE_OPEN",

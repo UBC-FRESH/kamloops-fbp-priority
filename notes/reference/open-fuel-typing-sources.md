@@ -40,31 +40,34 @@ The tool is vendored at `analysis/vendor/BC_CFFBPS_FuelTyping_Tool/` (commit
 python analysis/smoke_open_fuel_typing.py
 ```
 
-## First real-data check (2026-10-29)
+## Three-zone real-data check (2026-10-29)
 
-A 4 km × 4 km VRI sample around Kamloops (EPSG:3005 bbox `1398265,642886,1402265,646886`) returned
-35 polygons. The open decision tree classified all 35 with no errors:
+Three 4 km × 4 km VRI samples, one in each test zone, were chosen where LidarBC point-cloud tiles
+exist. The open decision tree classified every polygon with zero errors.
 
-| Open fuel type | Count |
-| --- | ---: |
-| O-1b | 20 |
-| N | 10 |
-| C-7 | 4 |
-| D-2 | 1 |
+| Zone | Sample bbox (EPSG:3005) | Polygons | Comparable | Agreement |
+| --- | --- | ---: | ---: | ---: |
+| ICH | `1498398,561944,1502398,565944` | 175 | 173 | 81.5% |
+| IDF | `1465073,548635,1469073,552635` | 121 | 121 | 84.3% |
+| PP | `1458035,522214,1462035,526214` | 89 | 89 | 88.8% |
+| **All** | — | **385** | **383** | **84.1%** |
 
-A centroid join to the provincial fuel-type layer gave 34 comparable polygons and **85.3% agreement**
-after normalizing `O-1a/b`, `D-1/2`, and `M-1/2`:
+Open fuel-type counts by zone:
 
-| Open \ Provincial | C-7 | D-1/2 | N | O-1 | W |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| C-7 | 3 | 0 | 0 | 1 | 0 |
-| D-1/2 | 0 | 1 | 0 | 0 | 0 |
-| N | 0 | 0 | 8 | 2 | 0 |
-| O-1 | 0 | 0 | 1 | 17 | 1 |
+| Zone | Dominant open types |
+| --- | --- |
+| ICH | C-5 51, M-2 44, C-3 37, D-2 18, S-1 11 |
+| IDF | O-1b 48, C-7 42, M-2 23, C-3 4 |
+| PP | C-7 60, O-1b 15, N 10, D-2 3 |
 
-This is a smoke comparison, not a validation study: one small area, a centroid join, and 34 polygons.
-It proves the open method runs on real VRI data and produces a comparison surface. The full P3 run
-needs the three zones, LiDAR overrides, and a proper validation design.
+The earlier single-zone Kamloops sample (35 polygons, 85.3%) is superseded by this three-zone check.
+This is a smoke comparison, not a validation study: small boxes, a centroid join, and normalized
+grouped codes. It proves the open method runs across all three test zones and produces a comparison
+surface. The full P3 run needs the complete zones, LiDAR overrides, and a proper validation design.
+
+Per-zone tables: `docs/tables/open_vs_provincial_ICH.csv`, `..._IDF.csv`, `..._PP.csv`. The combined
+table is `docs/tables/open_vs_provincial_fuel_types_three_zones.csv`; the summary is
+`docs/tables/open_vs_provincial_agreement_by_zone.csv`.
 
 ## What this changes
 

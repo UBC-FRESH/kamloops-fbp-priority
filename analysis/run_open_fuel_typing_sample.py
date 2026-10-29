@@ -41,7 +41,10 @@ def _date(value: object) -> datetime | None:
     clean = _clean(value)
     if clean is None:
         return None
-    parsed = pd.to_datetime(clean, errors="coerce")
+    text = str(clean).strip()
+    if text.endswith("Z"):
+        text = text[:-1]
+    parsed = pd.to_datetime(text, errors="coerce")
     if pd.isna(parsed):
         return None
     return parsed.to_pydatetime()
@@ -95,7 +98,7 @@ def classify_row(row: pd.Series) -> tuple[str | None, str | None, int | None, st
             VRI_DEAD_STEMS_PER_HA=_int(row.get("VRI_DEAD_STEMS_PER_HA")),
             STAND_PERCENTAGE_DEAD=_int(row.get("STAND_PERCENTAGE_DEAD")),
             INVENTORY_STANDARD_CD=_str(row.get("INVENTORY_STANDARD_CD")),
-            NON_PRODUCTIVE_CD=_str(row.get("NON_PRODUCTIVE_CD")),
+            NON_PRODUCTIVE_CD=_int(row.get("NON_PRODUCTIVE_CD")),
             LAND_COVER_CLASS_CD_1=_str(row.get("LAND_COVER_CLASS_CD_1")),
             SPECIES_CD_1=_str(row.get("SPECIES_CD_1")),
             SPECIES_PCT_1=_float(row.get("SPECIES_PCT_1")),
@@ -120,9 +123,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--zone", type=str, default=None, help="Optional BEC zone filter.")
     args = parser.parse_args()
 
     vri = gpd.read_file(args.input)
+    if args.zone is not None:
+        vri = vri[vri["BEC_ZONE_CODE"] == args.zone].copy()
     print(f"read {len(vri)} VRI polygons from {args.input}")
 
     results = vri.apply(classify_row, axis=1, result_type="expand")

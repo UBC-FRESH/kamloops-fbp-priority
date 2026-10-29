@@ -54,13 +54,14 @@ ADR 0007, `notes/reference/open-fuel-typing-sources.md`, the vendored tool at
 Progress:
 
 The tool is vendored and the smoke test `analysis/smoke_open_fuel_typing.py` returns
-`(599, 'C-3', None)`. The first real-data check used a 4 km × 4 km VRI sample around Kamloops:
-35 polygons, 0 errors, and 85.3% agreement with the provincial layer on 34 comparable polygons after
-normalizing the grouped codes. That is a smoke comparison, not validation. The next step is the
-three-zone sample and the LiDAR overrides.
+`(599, 'C-3', None)`. Three 4 km × 4 km VRI samples (ICH, IDF, PP), chosen where LidarBC point
+clouds exist, classified 385 polygons with **0 errors** and **84.1% agreement** with the provincial
+layer on 383 comparable polygons after normalizing the grouped codes. Per-zone agreement: ICH 81.5%,
+IDF 84.3%, PP 88.8%. That is a smoke comparison, not validation. The next step is the LiDAR
+overrides on the same sample boxes.
 
 Scripts: `analysis/run_open_fuel_typing_sample.py`, `analysis/compare_open_vs_provincial.py`.
-Table: `docs/tables/open_vs_provincial_fuel_types_kamloops_sample.csv`.
+Tables: `docs/tables/open_vs_provincial_agreement_by_zone.csv` and the per-zone CSV files.
 
 Risks:
 
