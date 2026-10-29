@@ -36,9 +36,15 @@ tokens are recorded in the repository.
 | P0.3 | #4 | P0.3: Build the 100 m baseline FBP chain | closed, complete |
 | P0.4 | #5 | P0.4: Write the scope, scale, and shape map | closed, complete |
 | P0.5 | #6 | P0.5: Create the repository and Phase 0 issues | closed, complete |
+| P1 | #8 | P1: Method contract | open, active |
+| P1.1 | #9 | P1.1: Decide the weather method and record it as an ADR | open |
+| P1.2 | #10 | P1.2: Approve the fuel crosswalk and grouped-code sensitivity plan | open |
+| P1.3 | #11 | P1.3: Decide the analysis resolution and effective-resolution table | open |
+| P1.4 | #12 | P1.4: Confirm BCWS fuel-typing algorithm access and input schema | open |
+| P1.5 | #13 | P1.5: Define the 10-class FBP and two-class WUI priority rule | open |
 
-All five child issues are linked to #1 as sub-issues. The issue bodies are kept in
-`notes/scope/issues/` and were posted with `--body-file`.
+All five P0 child issues are linked to #1, and all five P1 child issues are linked to #8. The issue
+bodies are kept in `notes/scope/issues/` and were posted with `--body-file`.
 
 ## Verification
 
@@ -67,5 +73,5 @@ gh api -X POST repos/UBC-FRESH/kamloops-fbp-priority/issues/1/sub_issues \
   -F sub_issue_id="$child_id"
 ```
 
-P0.1-P0.5 are closed. The Phase 0 close-out pull request #7 is approved and merged. The close-out
-report is `notes/reports/p0-closeout.md`.
+P0.1-P0.5 are closed. The Phase 0 close-out pull request #7 is approved and merged. Phase 1 is
+active under #8 with children #9-#13. The close-out report is `notes/reports/p0-closeout.md`.

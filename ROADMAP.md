@@ -13,7 +13,7 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | complete |
-| P1 Method contract | TBD | `feature/p1-method-contract` | planned |
+| P1 Method contract | #8 | `feature/p1-method-contract` | active |
 | P2 Baseline KFC fire behaviour | TBD | `feature/p2-baseline-kfc` | planned |
 | P3 LiDAR and VRI fuel typing | TBD | `feature/p3-lidar-vri` | planned |
 | P4 Baseline versus LiDAR comparison | TBD | `feature/p4-comparison` | planned |
@@ -93,9 +93,9 @@ Verification:
 
 ## Phase 1: Method contract
 
-Parent issue: TBD
+Parent issue: #8
 Branch: `feature/p1-method-contract`
-Status: planned
+Status: active
 
 Goal: turn the feasibility findings into a written method contract that Leah and BCWS can approve
 before any LiDAR fuel-typing work starts.
@@ -253,10 +253,9 @@ Acceptance criteria:
 9. Finding 6 is the priority rule. The proposal does not define the 10 FBP classes or the WUI
    combination. The prototype's rule is provisional: HFI 10-class scale, buffer half-scale, risk
    full-scale, outside WUI zero. P1.5 must replace it with a cited, approved rule.
-10. The next move after the Phase 0 close-out is P1.1 (weather method). Do not start LiDAR processing
-    until the weather method and BCWS algorithm access are settled.
-11. The Phase 0 local work is complete through P0.4 and the phase is active under issue #1. P0.5 is
-    closed; P0.1-P0.4 remain open for the close-out pull request. The local evidence is in
+10. Phase 1 is active under issue #8. P1.1 (weather method) is the first task. Do not start LiDAR
+    processing until the weather method and BCWS algorithm access are settled.
+11. Phase 0 is complete and merged as `eda7195`; all P0 issues are closed. The local evidence is in
     `notes/scope/mental-map.md`, `notes/scope/data-audit.md`, `docs/tables/`, and `docs/figures/`.
 12. Baseline results: the 100 m three-zone method test gives IDF HFI mean 1,828 kW/m, ICH 697, and
     PP 1,562 under mean-summer weather; the 200 m full-KFC overview gives IDF 1,972, ICH 751, and
