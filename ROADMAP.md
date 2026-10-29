@@ -12,7 +12,7 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | pr-open |
+| P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | complete |
 | P1 Method contract | TBD | `feature/p1-method-contract` | planned |
 | P2 Baseline KFC fire behaviour | TBD | `feature/p2-baseline-kfc` | planned |
 | P3 LiDAR and VRI fuel typing | TBD | `feature/p3-lidar-vri` | planned |
@@ -43,34 +43,35 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 ## Phase 0: Bootstrap and feasibility speed run
 
 Parent issue: #1
+Merge commit: `eda7195`
 Branch: `feature/p0-bootstrap`
 Pull request: #7
-Status: pr-open
+Status: complete
 
 Goal: stand up the project on the UBC-FRESH seed, audit every named dataset, and run a real baseline
 FBP chain for the KFC and the three test BEC zones so the scope and scale of Leah's project are
 concrete rather than hypothetical.
 
-- [ ] P0.1 Adapt the agent contract, README, and roadmap to the KFC project
-  - [ ] Replace the seed's placeholder purpose and status text
-  - [ ] Add the data, CRS, unit, and weather guardrails to `AGENTS.md`
-  - [ ] Record the analysis/ versus scripts/ gate distinction
-- [ ] P0.2 Fetch and audit the named datasets
-  - [ ] KFC boundary, BEC map, provincial fuel types, WUI buffer, and WUI risk class
-  - [ ] ClimateBC 2014-2023 July/August rasters and the wind-variable gap
-  - [ ] LidarBC index coverage by BEC zone and by product
-  - [ ] VRI 2025, CDED, fire perimeters, and PSP access notes
-- [ ] P0.3 Build the 100 m baseline FBP chain
-  - [ ] 100 m EPSG:3005 grid, KFC mask, BEC/fuel/WUI rasterization
-  - [ ] DEM mosaic and slope/aspect
-  - [ ] 62-day mean-summer FWI sequence with the official `fwiRaster`
-  - [ ] 100 m FBP inputs and official `fbpRaster`
-  - [ ] Provisional HFI classes, WUI priority, zonal summaries, figures
-- [ ] P0.4 Write the scope, scale, and shape map
-  - [ ] `notes/scope/mental-map.md` with findings, timeline, and decisions
-  - [ ] `notes/scope/data-audit.md` with source, size, resolution, and quirks
-  - [ ] ADRs for the weather scenario, fuel crosswalk, and resolution
-- [x] P0.5 Create the private GitHub repository and Phase 0 issues
+- [x] P0.1 Adapt the agent contract, README, and roadmap to the KFC project
+  - [x] Replace the seed's placeholder purpose and status text
+  - [x] Add the data, CRS, unit, and weather guardrails to `AGENTS.md`
+  - [x] Record the analysis/ versus scripts/ gate distinction
+- [x] P0.2 Fetch and audit the named datasets
+  - [x] KFC boundary, BEC map, provincial fuel types, WUI buffer, and WUI risk class
+  - [x] ClimateBC 2014-2023 July/August rasters and the wind-variable gap
+  - [x] LidarBC index coverage by BEC zone and by product
+  - [x] VRI 2025, CDED, fire perimeters, and PSP access notes
+- [x] P0.3 Build the 100 m baseline FBP chain
+  - [x] 100 m EPSG:3005 grid, KFC mask, BEC/fuel/WUI rasterization
+  - [x] DEM mosaic and slope/aspect
+  - [x] 62-day mean-summer FWI sequence with the official `fwiRaster`
+  - [x] 100 m FBP inputs and official `fbpRaster`
+  - [x] Provisional HFI classes, WUI priority, zonal summaries, figures
+- [x] P0.4 Write the scope, scale, and shape map
+  - [x] `notes/scope/mental-map.md` with findings, timeline, and decisions
+  - [x] `notes/scope/data-audit.md` with source, size, resolution, and quirks
+  - [x] ADRs for the weather scenario, fuel crosswalk, and resolution
+- [x] P0.5 Create the GitHub repository and Phase 0 issues
   - [x] Render and push the seed to `UBC-FRESH/kamloops-fbp-priority`
   - [x] Create the P0 parent issue and child issues as sub-issues
   - [x] Activate P0 and post the activation comment

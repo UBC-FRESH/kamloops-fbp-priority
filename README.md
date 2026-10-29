@@ -10,12 +10,11 @@ LiDAR-improved fuel-type experiment that is the research contribution.
 
 ## Status
 
-Phase 0 (bootstrap and feasibility speed run) is in review via
-[pull request #7](https://github.com/UBC-FRESH/kamloops-fbp-priority/pull/7) on
-`feature/p0-bootstrap`. The Phase 0 parent issue is #1 and the task issues are #2-#6. The work is not
-merged to `main` until the close-out is approved. The issue map is in
-`notes/scope/github-issue-tree.md`; the close-out evidence is in `notes/reports/p0-closeout.md`.
-Documentation is published at https://ubc-fresh.github.io/kamloops-fbp-priority/.
+Phase 0 (bootstrap and feasibility speed run) is complete: pull request #7 was squash-merged as
+`eda7195`, and issues #1-#6 are closed. Phase 1 (method contract) is the next phase. The issue map is
+in `notes/scope/github-issue-tree.md`; the close-out evidence is in
+`notes/reports/p0-closeout.md`. Documentation is published at
+https://ubc-fresh.github.io/kamloops-fbp-priority/.
 
 The scope, data audit, findings, and 18-month timeline are in
 [`notes/scope/mental-map.md`](notes/scope/mental-map.md). Read that first.

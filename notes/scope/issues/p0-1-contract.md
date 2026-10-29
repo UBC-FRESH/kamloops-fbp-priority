@@ -51,4 +51,4 @@ The seed's generic phases do not match the thesis timeline; the mapping must sta
 
 Completion metadata:
 
-Added at closeout: commit hash, verification result, and pull request number.
+Added at closeout: merged in `eda7195` via pull request #7; dashboard green at `5e7602f`; CI run `40793125048` passed.

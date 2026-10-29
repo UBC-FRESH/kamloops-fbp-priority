@@ -6,7 +6,7 @@ Pull request: #7, `feature/p0-bootstrap` into `main`
 Evidence head: `229e2e0`
 Report commit: `dd9f27f`; CI run `40792240223` passed on pull request #7
 Date: 2026-10-29
-Status: queued for approval. Not merged.
+Status: merged 2026-10-29 as `eda7195`; closeout complete.
 
 ## Recommendation
 
@@ -119,5 +119,7 @@ deferral, and the BCWS permission/version is recorded.
 
 ## 7. Decision
 
-- [ ] Approve as written.
+- [x] Approve as written.
 - [ ] Approve with the changes stated here: <changes>.
+
+Merged as `eda7195` on 2026-10-29. The branch `feature/p0-bootstrap` was deleted.

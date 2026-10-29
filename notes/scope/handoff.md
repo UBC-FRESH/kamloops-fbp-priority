@@ -18,11 +18,9 @@ Dashboard: green (lint, format, strict types, tests, validator, docs)
 ## GitHub (resolved)
 
 The repository is public at https://github.com/UBC-FRESH/kamloops-fbp-priority, with documentation at
-https://ubc-fresh.github.io/kamloops-fbp-priority/. `main` has
-the seed commit and `feature/p0-bootstrap` has the Phase 0 work. The parent issue is #1; the child
-issues are #2-#6 and are linked as sub-issues. P0.5 (#6) is complete; P0.1-P0.4 remain open until
-the Phase 0 close-out pull request #7 is approved. The close-out report is
-`notes/reports/p0-closeout.md`.
+https://ubc-fresh.github.io/kamloops-fbp-priority/. Phase 0 is complete: pull request #7 was
+squash-merged as `eda7195`, and issues #1-#6 are closed. The close-out report is
+`notes/reports/p0-closeout.md`; `main` now carries the Phase 0 project and baseline.
 
 The first session's device-flow codes expired before authorization. The maintainer authenticated
 separately; no credentials are stored in the repository. The issue map and verification commands are
@@ -35,9 +33,8 @@ fixed 20 km/h wind, and a 62-day FWI spin-up. Add a daily wind/daily-weather sou
 BCWS stations) or explicitly accept the mean-summer scenario. Do not start LiDAR processing until
 this and the BCWS fuel-typing algorithm access are settled.
 
-The Phase 0 close-out move is separate: pull request #7 is open from `feature/p0-bootstrap`, the
-report is `notes/reports/p0-closeout.md`, and the phase waits for maintainer approval before merging
-or closing #1.
+The Phase 0 close-out is complete: pull request #7 merged as `eda7195`, the report is
+`notes/reports/p0-closeout.md`, and issues #1-#6 are closed. Phase 1 starts with P1.1.
 
 ## Reproduce the baseline
 

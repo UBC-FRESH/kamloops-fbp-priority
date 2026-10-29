@@ -52,3 +52,7 @@ Risks:
 
 The proposal's 54% LiDAR coverage is not reproducible from the current index; the audit must state
 the measured numbers and the open question.
+
+Completion metadata:
+
+Added at closeout: merged in `eda7195` via pull request #7; dashboard green at `5e7602f`; CI run `40793125048` passed.

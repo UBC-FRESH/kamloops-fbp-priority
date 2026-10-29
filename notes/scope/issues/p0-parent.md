@@ -1,9 +1,10 @@
 Phase identifier: P0
-Status: pr-open
+Status: complete
 Branch: `feature/p0-bootstrap`
 Roadmap: `ROADMAP.md`, section "Phase 0: Bootstrap and feasibility speed run"
 Repository: https://github.com/UBC-FRESH/kamloops-fbp-priority
 Pull request: #7
+Merge commit: `eda7195`
 
 Goal:
 
@@ -36,10 +37,10 @@ git; derived rasters are ignored; headline tables and figures are tracked. See
 
 Child task checklist:
 
-- [ ] #2 P0.1: Adapt the agent contract, README, and roadmap
-- [ ] #3 P0.2: Fetch and audit the named datasets
-- [ ] #4 P0.3: Build the 100 m baseline FBP chain
-- [ ] #5 P0.4: Write the scope, scale, and shape map
+- [x] #2 P0.1: Adapt the agent contract, README, and roadmap
+- [x] #3 P0.2: Fetch and audit the named datasets
+- [x] #4 P0.3: Build the 100 m baseline FBP chain
+- [x] #5 P0.4: Write the scope, scale, and shape map
 - [x] #6 P0.5: Create the private repository and Phase 0 issues
 
 Acceptance criteria:

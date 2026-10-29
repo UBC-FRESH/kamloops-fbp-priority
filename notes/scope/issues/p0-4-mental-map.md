@@ -49,3 +49,7 @@ Artifacts:
 Risks:
 
 The mental map can become a second proposal; keep it a decision document, not a literature review.
+
+Completion metadata:
+
+Added at closeout: merged in `eda7195` via pull request #7; dashboard green at `5e7602f`; CI run `40793125048` passed.
