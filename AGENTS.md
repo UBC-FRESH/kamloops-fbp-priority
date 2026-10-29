@@ -137,8 +137,10 @@ Record the result in the changelog entry for the milestone.
   for FWI. The proposal's 30 m target needs an effective-resolution table and a chunked production
   run. Do not describe interpolated 30 m climate as 30 m information.
 - **Research integrity.** The LiDAR/VRI fuel-typing experiment is the thesis contribution; the
-  provincial fuel-type layer is only the baseline. Do not claim an improved fuel map until the BCWS
-  algorithm permission, input schema, and version are recorded.
+  provincial fuel-type layer is only the baseline. Use the published BC fuel-typing decision tree and
+  the open `BC_CFFBPS_FuelTyping_Tool` as the primary method (ADR 0007); the BCWS current operational
+  algorithm is an optional benchmark. If the BCWS version is used, record its permission, schema, and
+  version. Do not claim to reproduce the current BCWS operational output exactly without them.
 - **Analysis and production code.** `scripts/` is the seed's gated framework. `analysis/` is
   prototype code: it is linted and tested where practical, but it is not yet coverage-gated. Promote
   vetted functions into a package and add them to the gate before a public release.

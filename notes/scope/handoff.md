@@ -28,10 +28,11 @@ in `notes/scope/github-issue-tree.md`.
 
 ## Next technical move
 
-P1.1: decide the weather method. The current mean-summer scenario uses ClimateBC monthly means, a
-fixed 20 km/h wind, and a 62-day FWI spin-up. Add a daily wind/daily-weather source (ERA5-Land or
-BCWS stations) or explicitly accept the mean-summer scenario. Do not start LiDAR processing until
-this and the BCWS fuel-typing algorithm access are settled.
+Phase 1 is active under issue #8; the child issues are #9-#13. P1.1 (#9) is the first task: decide
+the weather method. The current mean-summer scenario uses ClimateBC monthly means, a fixed 20 km/h
+wind, and a 62-day FWI spin-up. Add a daily wind/daily-weather source (ERA5-Land or BCWS stations)
+or explicitly accept the mean-summer scenario. Do not start LiDAR processing until this and the open
+fuel-typing tool version/licence are recorded.
 
 The Phase 0 close-out is complete: pull request #7 merged as `eda7195`, the report is
 `notes/reports/p0-closeout.md`, and issues #1-#6 are closed. Phase 1 starts with P1.1.

@@ -13,7 +13,7 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | complete |
-| P1 Method contract | TBD | `feature/p1-method-contract` | planned |
+| P1 Method contract | #8 | `feature/p1-method-contract` | active |
 | P2 Baseline KFC fire behaviour | TBD | `feature/p2-baseline-kfc` | planned |
 | P3 LiDAR and VRI fuel typing | TBD | `feature/p3-lidar-vri` | planned |
 | P4 Baseline versus LiDAR comparison | TBD | `feature/p4-comparison` | planned |
@@ -93,9 +93,9 @@ Verification:
 
 ## Phase 1: Method contract
 
-Parent issue: TBD
+Parent issue: #8
 Branch: `feature/p1-method-contract`
-Status: planned
+Status: active
 
 Goal: turn the feasibility findings into a written method contract that Leah and BCWS can approve
 before any LiDAR fuel-typing work starts.
@@ -110,9 +110,10 @@ before any LiDAR fuel-typing work starts.
 - [ ] P1.3 Decide the analysis resolution and effective-resolution table
   - [ ] 100 m screening grid and 30 m LiDAR core
   - [ ] Resolution sensitivity run
-- [ ] P1.4 Confirm BCWS fuel-typing algorithm access and input schema
-  - [ ] Obtain written permission and the algorithm version
-  - [ ] Map the 21 VRI attributes and 5 LiDAR attributes to the schema
+- [ ] P1.4 Implement the open fuel-typing method and define the LiDAR input mapping
+  - [ ] Record the published decision tree, open tool commit, and GPL-3.0 licence
+  - [ ] Map the 21 VRI attributes and the LiDAR canopy overrides
+  - [ ] Decide whether the current BCWS version is run as an optional benchmark
 - [ ] P1.5 Define the 10-class FBP and two-class WUI priority rule
   - [ ] Class breaks, fire-type dimension, and WUI weighting
   - [ ] At least two alternative rules for sensitivity
@@ -120,7 +121,8 @@ before any LiDAR fuel-typing work starts.
 Acceptance criteria:
 
 - Every open choice in the mental map has an accepted ADR or a named deferral.
-- The fuel-typing algorithm permission and version are recorded.
+- The published fuel-typing decision tree and open tool (or a clean reimplementation) are recorded,
+  with the tool commit and GPL-3.0 licence; the current BCWS version is an optional benchmark.
 - The weather method can be run end to end on the three zones.
 
 ## Phase 2: Baseline KFC fire behaviour
@@ -151,17 +153,19 @@ Status: planned
 Goal: implement the research contribution: use LiDAR to improve VRI fuel attributes and re-derive
 FBP fuel types per BEC zone.
 
-- [ ] P3.1 Acquire and clip VRI 2025 R1 for the three zones
+- [ ] P3.1 Acquire and clip VRI 2025 R1, implement the published decision tree, and reproduce the baseline fuel types
 - [ ] P3.2 Select and process LiDAR tiles for canopy height, cover, live stems, and dead stems
 - [ ] P3.3 Compare VRI and LiDAR attributes with PSP plots
 - [ ] P3.4 Train and validate the per-BEC adjustment model
-- [ ] P3.5 Produce the improved 21-attribute stack and FBP fuel-type map
+- [ ] P3.5 Produce the improved 21-attribute stack and FBP fuel-type map with the open decision tree
 
 Acceptance criteria:
 
 - The LiDAR coverage and extrapolation limits are explicit per zone.
 - The VRI-versus-LiDAR differences are quantified with uncertainty.
 - The improved fuel-type map is reproducible and documented.
+- The open decision tree version and GPL-3.0 licence are recorded; the current BCWS version is
+  optional.
 
 ## Phase 4: Baseline versus LiDAR comparison
 
@@ -247,16 +251,16 @@ Acceptance criteria:
 7. Finding 4 is resolution. The proposal's 30 m grid is 79.5 M KFC pixels; the prototype uses 100 m
    (7.16 M). ClimateBC is ~800 m and CDED is a 1:250k source; 30 m does not create 30 m climate or
    30 m VRI. P1.3 should adopt an effective-resolution table and a resolution sensitivity run.
-8. Finding 5 is the critical path. The BCWS 21-attribute fuel-typing algorithm and its permission are
-   required before P3 can produce the thesis's central result. Confirm this in writing before
-   January 2027.
+8. Finding 5 is the fuel-typing method. The published 2018 BC decision tree and the open
+   `BC_CFFBPS_FuelTyping_Tool` (GPL-3.0) implement the 21-attribute method; Baron et al. (2024)
+   document the accuracy gap and the LiDAR opportunity. The current BCWS operational version is an
+   optional benchmark, not a permission gate. Record the tool commit and licence in P1.4.
 9. Finding 6 is the priority rule. The proposal does not define the 10 FBP classes or the WUI
    combination. The prototype's rule is provisional: HFI 10-class scale, buffer half-scale, risk
    full-scale, outside WUI zero. P1.5 must replace it with a cited, approved rule.
-10. The next move after the Phase 0 close-out is P1.1 (weather method). Do not start LiDAR processing
-    until the weather method and BCWS algorithm access are settled.
-11. The Phase 0 local work is complete through P0.4 and the phase is active under issue #1. P0.5 is
-    closed; P0.1-P0.4 remain open for the close-out pull request. The local evidence is in
+10. Phase 1 is active under issue #8. P1.1 (weather method) is the first task. Do not start LiDAR
+    processing until the weather method and the open fuel-typing tool version/licence are recorded.
+11. Phase 0 is complete and merged as `eda7195`; all P0 issues are closed. The local evidence is in
     `notes/scope/mental-map.md`, `notes/scope/data-audit.md`, `docs/tables/`, and `docs/figures/`.
 12. Baseline results: the 100 m three-zone method test gives IDF HFI mean 1,828 kW/m, ICH 697, and
     PP 1,562 under mean-summer weather; the 200 m full-KFC overview gives IDF 1,972, ICH 751, and

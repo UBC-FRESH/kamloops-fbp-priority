@@ -11,7 +11,8 @@ LiDAR-improved fuel-type experiment that is the research contribution.
 ## Status
 
 Phase 0 (bootstrap and feasibility speed run) is complete: pull request #7 was squash-merged as
-`eda7195`, and issues #1-#6 are closed. Phase 1 (method contract) is the next phase. The issue map is
+`eda7195`, and issues #1-#6 are closed. Phase 1 (method contract) is active under issue #8, with
+child issues #9-#13; P1.1 is the first task. The issue map is
 in `notes/scope/github-issue-tree.md`; the close-out evidence is in
 `notes/reports/p0-closeout.md`. Documentation is published at
 https://ubc-fresh.github.io/kamloops-fbp-priority/.
@@ -109,5 +110,6 @@ writes a manifest under `data/raw/`.
 
 ## Licence
 
-The code is MIT-licensed; see `LICENSE`. The data licences are separate and must be recorded in the
-thesis appendix.
+The code is MIT-licensed; see `LICENSE`. The vendored
+`analysis/vendor/BC_CFFBPS_FuelTyping_Tool` remains GPL-3.0; see its `LICENSE` and `README.md`.
+The data licences are separate and must be recorded in the thesis appendix.
