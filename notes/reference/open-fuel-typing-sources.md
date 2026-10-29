@@ -40,6 +40,32 @@ The tool is vendored at `analysis/vendor/BC_CFFBPS_FuelTyping_Tool/` (commit
 python analysis/smoke_open_fuel_typing.py
 ```
 
+## First real-data check (2026-10-29)
+
+A 4 km × 4 km VRI sample around Kamloops (EPSG:3005 bbox `1398265,642886,1402265,646886`) returned
+35 polygons. The open decision tree classified all 35 with no errors:
+
+| Open fuel type | Count |
+| --- | ---: |
+| O-1b | 20 |
+| N | 10 |
+| C-7 | 4 |
+| D-2 | 1 |
+
+A centroid join to the provincial fuel-type layer gave 34 comparable polygons and **85.3% agreement**
+after normalizing `O-1a/b`, `D-1/2`, and `M-1/2`:
+
+| Open \ Provincial | C-7 | D-1/2 | N | O-1 | W |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| C-7 | 3 | 0 | 0 | 1 | 0 |
+| D-1/2 | 0 | 1 | 0 | 0 | 0 |
+| N | 0 | 0 | 8 | 2 | 0 |
+| O-1 | 0 | 0 | 1 | 17 | 1 |
+
+This is a smoke comparison, not a validation study: one small area, a centroid join, and 34 polygons.
+It proves the open method runs on real VRI data and produces a comparison surface. The full P3 run
+needs the three zones, LiDAR overrides, and a proper validation design.
+
 ## What this changes
 
 - The provincial decision tree can be run without BCWS permission.

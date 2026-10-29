@@ -54,7 +54,13 @@ ADR 0007, `notes/reference/open-fuel-typing-sources.md`, the vendored tool at
 Progress:
 
 The tool is vendored and the smoke test `analysis/smoke_open_fuel_typing.py` returns
-`(599, 'C-3', None)`. The next step is a real VRI sample, not a synthetic stand.
+`(599, 'C-3', None)`. The first real-data check used a 4 km × 4 km VRI sample around Kamloops:
+35 polygons, 0 errors, and 85.3% agreement with the provincial layer on 34 comparable polygons after
+normalizing the grouped codes. That is a smoke comparison, not validation. The next step is the
+three-zone sample and the LiDAR overrides.
+
+Scripts: `analysis/run_open_fuel_typing_sample.py`, `analysis/compare_open_vs_provincial.py`.
+Table: `docs/tables/open_vs_provincial_fuel_types_kamloops_sample.csv`.
 
 Risks:
 
