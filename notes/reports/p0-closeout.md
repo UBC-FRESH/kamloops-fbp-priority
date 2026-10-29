@@ -4,7 +4,7 @@ Phase: P0 Bootstrap and feasibility speed run
 Parent issue: #1
 Pull request: #7, `feature/p0-bootstrap` into `main`
 Evidence head: `229e2e0`
-Report commit: this commit; its CI run is posted as a comment on pull request #7
+Report commit: `dd9f27f`; CI run `40792240223` passed on pull request #7
 Date: 2026-10-29
 Status: queued for approval. Not merged.
 
@@ -52,8 +52,8 @@ experiment and the final priority rule remain P3 and P1.5 work respectively.
 - Commit messages that start with task IDs: 6 of 6 non-seed commits (`e5d166a`, `4796fa5`,
   `8f61879`, `db205bd`, `0f17bb1`, `229e2e0`).
 - Gates for each commit: section 3.
-- Roadmap and changelog in step: Phase 0 state was updated in `229e2e0`; this report commit adds the
-  close-out report and moves the phase to `pr-open`.
+- Roadmap and changelog in step: Phase 0 state was updated in `229e2e0`; report commit `dd9f27f`
+  adds the close-out report and moves the phase to `pr-open`.
 - Child issues closed with closeout evidence: #6 closed with a closeout comment. #2-#5 remain open
   until the merge, then close with merge-commit evidence.
 - Approval gates: the maintainer authenticated `gh` and authorized the repository work with
@@ -69,9 +69,9 @@ experiment and the final priority rule remain P3 and P1.5 work respectively.
 | `e5d166a`–`db205bd` | Local lint, format, types, tests, validator, docs | run in the prior session; no per-commit CI because the branch was not yet pushed |
 | `0f17bb1` | Full local dashboard | green, recorded in `CHANGE_LOG.md` |
 | `229e2e0` | Full local dashboard; CI pull request run `40792023630` | green; all CI jobs green |
-| this report commit | Full local dashboard; CI pull request run posted on #7 | green locally; run ID posted on #7 |
+| `dd9f27f` | Full local dashboard; CI pull request run `40792240223` | green; all CI jobs green |
 
-The local dashboard after this report commit is the authoritative gate result for the report.
+The local dashboard after report commit `dd9f27f` was green; CI run `40792240223` passed.
 
 ## 4. CI evidence
 
@@ -80,7 +80,7 @@ The local dashboard after this report commit is the authoritative gate result fo
 | `40789069363` | `40f43bb` | success | `CI` on the seed push to `main`; all quality, dashboard, and pre-commit jobs passed |
 | `40789069479` | `40f43bb` | failure | `Docs` on the seed push; the Sphinx build passed, the deploy step returned 404 because GitHub Pages is not enabled |
 | `40792023630` | `229e2e0` | success | `CI` on pull request #7; quality, dashboard, pre-commit, and docs build all passed |
-| this report run | this commit | pending | posted as a comment on pull request #7 after it completes |
+| `40792240223` | `dd9f27f` | success | `CI` on pull request #7 for the report commit; all jobs passed |
 
 ## 5. Deviations
 
