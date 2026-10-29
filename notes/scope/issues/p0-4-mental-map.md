@@ -1,6 +1,6 @@
 Task identifier: P0.4
 Parent phase issue: #1
-Status: active
+Status: pr-open
 Branch: `feature/p0-bootstrap`
 Related planning: `ROADMAP.md` (Phase 0)
 

@@ -12,7 +12,7 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | active |
+| P0 Bootstrap and feasibility speed run | #1 | `feature/p0-bootstrap` | pr-open |
 | P1 Method contract | TBD | `feature/p1-method-contract` | planned |
 | P2 Baseline KFC fire behaviour | TBD | `feature/p2-baseline-kfc` | planned |
 | P3 LiDAR and VRI fuel typing | TBD | `feature/p3-lidar-vri` | planned |
@@ -44,7 +44,8 @@ Kamloops Fire Centre (KFC), 71,579 km². The method test uses three BEC zones: I
 
 Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: active
+Pull request: #7
+Status: pr-open
 
 Goal: stand up the project on the UBC-FRESH seed, audit every named dataset, and run a real baseline
 FBP chain for the KFC and the three test BEC zones so the scope and scale of Leah's project are
@@ -253,9 +254,8 @@ Acceptance criteria:
    full-scale, outside WUI zero. P1.5 must replace it with a cited, approved rule.
 10. The next move after the Phase 0 close-out is P1.1 (weather method). Do not start LiDAR processing
     until the weather method and BCWS algorithm access are settled.
-11. The Phase 0 local work is complete through P0.4. The phase remains `planned` because its parent
-    issue cannot exist until the private repository is created; do not mark it `active` or check its
-    tasks until `gh auth status` succeeds and the issues exist. The local evidence is in
+11. The Phase 0 local work is complete through P0.4 and the phase is active under issue #1. P0.5 is
+    closed; P0.1-P0.4 remain open for the close-out pull request. The local evidence is in
     `notes/scope/mental-map.md`, `notes/scope/data-audit.md`, `docs/tables/`, and `docs/figures/`.
 12. Baseline results: the 100 m three-zone method test gives IDF HFI mean 1,828 kW/m, ICH 697, and
     PP 1,562 under mean-summer weather; the 200 m full-KFC overview gives IDF 1,972, ICH 751, and

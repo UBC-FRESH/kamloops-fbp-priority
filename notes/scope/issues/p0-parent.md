@@ -1,9 +1,9 @@
 Phase identifier: P0
-Status: active
+Status: pr-open
 Branch: `feature/p0-bootstrap`
 Roadmap: `ROADMAP.md`, section "Phase 0: Bootstrap and feasibility speed run"
 Repository: https://github.com/UBC-FRESH/kamloops-fbp-priority
-Pull request: not opened yet
+Pull request: #7
 
 Goal:
 

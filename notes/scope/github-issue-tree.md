@@ -1,10 +1,12 @@
 # GitHub issue tree
 
-Status: created and verified 2026-10-28.
+Status: created and verified 2026-10-28; close-out queued 2026-10-29.
 
 - Repository: https://github.com/UBC-FRESH/kamloops-fbp-priority (private)
 - Default branch: `main`
 - Working branch: `feature/p0-bootstrap`
+- Close-out pull request: #7
+- Close-out report: `notes/reports/p0-closeout.md`
 - Visibility, settings, and branch protection: unchanged from the repository defaults; no changes
   were made after creation.
 
@@ -27,11 +29,11 @@ tokens are recorded in the repository.
 
 | ID | Issue | Title | State |
 | --- | --- | --- | --- |
-| P0 | #1 | P0: Bootstrap and feasibility speed run | open, active |
-| P0.1 | #2 | P0.1: Adapt the agent contract, README, and roadmap | open |
-| P0.2 | #3 | P0.2: Fetch and audit the named datasets | open |
-| P0.3 | #4 | P0.3: Build the 100 m baseline FBP chain | open |
-| P0.4 | #5 | P0.4: Write the scope, scale, and shape map | open |
+| P0 | #1 | P0: Bootstrap and feasibility speed run | open, pr-open |
+| P0.1 | #2 | P0.1: Adapt the agent contract, README, and roadmap | open, pr-open |
+| P0.2 | #3 | P0.2: Fetch and audit the named datasets | open, pr-open |
+| P0.3 | #4 | P0.3: Build the 100 m baseline FBP chain | open, pr-open |
+| P0.4 | #5 | P0.4: Write the scope, scale, and shape map | open, pr-open |
 | P0.5 | #6 | P0.5: Create the private repository and Phase 0 issues | closed, complete |
 
 All five child issues are linked to #1 as sub-issues. The issue bodies are kept in
@@ -65,4 +67,4 @@ gh api -X POST repos/UBC-FRESH/kamloops-fbp-priority/issues/1/sub_issues \
 ```
 
 P0.5 closed after the activation comment. P0.1-P0.4 remain open until the Phase 0 close-out pull
-request is approved and merged.
+request #7 is approved and merged. The close-out report is `notes/reports/p0-closeout.md`.
