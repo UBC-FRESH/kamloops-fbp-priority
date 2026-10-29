@@ -1,6 +1,6 @@
 # ADR 0002: Mean-summer weather scenario and the ClimateBC gap
 
-Status: proposed; must be resolved in P1.1
+Status: superseded by ADR 0006 (accepted 2026-10-29)
 Date: 2026-10-28
 Issues: #1
 

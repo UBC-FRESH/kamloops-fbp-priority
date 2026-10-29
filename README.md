@@ -110,5 +110,6 @@ writes a manifest under `data/raw/`.
 
 ## Licence
 
-The code is MIT-licensed; see `LICENSE`. The data licences are separate and must be recorded in the
-thesis appendix.
+The code is MIT-licensed; see `LICENSE`. The vendored
+`analysis/vendor/BC_CFFBPS_FuelTyping_Tool` remains GPL-3.0; see its `LICENSE` and `README.md`.
+The data licences are separate and must be recorded in the thesis appendix.

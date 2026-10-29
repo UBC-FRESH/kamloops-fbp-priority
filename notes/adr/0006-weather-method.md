@@ -1,6 +1,6 @@
 # ADR 0006: Daily weather method for FWI and FBP
 
-Status: proposed; P1.1 decision pending
+Status: accepted 2026-10-29
 Date: 2026-10-29
 Issues: #9
 
@@ -36,6 +36,23 @@ any bias correction as a separate, tested step.
 
 Keep ClimateBC for spatial climate normals and future scenarios. Do not use it as a daily weather
 source.
+
+## Data access update (2026-10-29)
+
+An open, no-account ERA5-Land mirror is available as a Pangeo Forge Zarr store on Wasabi:
+
+- `https://s3.wasabisys.com/era5/north-america/reanalysis/land/zarr/timeseries_real_time`
+  (t2m, tp, sd)
+- `https://s3.wasabisys.com/era5/north-america/reanalysis/land/zarr/timeseries_real_time2`
+  (d2m, u10, v10, sp, ssrd, strd, pev, sf)
+
+The store covers 1950-01-01 to 2025-04 and is directly readable over HTTPS without credentials; a
+test slice for the KFC on 2020-07-15 returned plausible temperature and wind values. It is a
+third-party mirror, not the official CDS endpoint, so the production run must record the store URL
+and validate against the official ERA5-Land documentation. One `u10` chunk
+(`u10/429.49.69`) returned HTTP 500 in testing; the fetch code must record missing chunks and use a
+documented fallback rather than silently interpolate. The data are ERA5-Land under the Copernicus
+CC-BY licence.
 
 ## Consequences
 

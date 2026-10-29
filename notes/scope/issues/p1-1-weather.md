@@ -2,7 +2,11 @@ Task identifier: P1.1
 Parent phase issue: #8
 Status: active
 Branch: `feature/p1-method-contract`
-Related planning: `ROADMAP.md` (Phase 1), `notes/adr/0002-weather-scenario.md`
+Related planning: `ROADMAP.md` (Phase 1), `notes/adr/0002-weather-scenario.md`,
+`notes/adr/0006-weather-method.md`
+
+Data access: the open ERA5-Land Zarr mirror recorded in ADR 0006; no CDS account is required for the
+prototype. The mirror is a third-party copy, so the fetch code records the URL and missing chunks.
 
 Goal:
 

@@ -111,11 +111,11 @@ any LiDAR fuel-typing work starts.
 | P1.1 Weather method | Resolve the ClimateBC wind gap; choose a daily sequence or weather generator; define the mean-summer versus percentile comparison. | ERA5-Land daily wind and weather, with BCWS station data as a validation source; retain the fixed-wind scenario only as a sensitivity case. |
 | P1.2 Fuel crosswalk | Confirm the grouped-code choices (`D-1/2`, `M-1/2`, `M-3/4`, `O-1a/b`) with BCWS; define the alternate-choice sensitivity run. | Use the current normalized crosswalk as the baseline and make grouped-code choice a documented sensitivity axis. |
 | P1.3 Resolution | Adopt an effective-resolution table; define the 100 m screening grid and 30 m LiDAR core; plan the resolution sensitivity run. | 100 m for the KFC screening, 30 m only for the LiDAR core; do not describe interpolated climate as 30 m information. |
-| P1.4 BCWS algorithm access | Obtain written permission and the algorithm version; map the 21 VRI attributes and 5 LiDAR attributes to the input schema. | Treat this as the critical path; do not start P3 until permission and version are in hand. |
+| P1.4 Open fuel-typing method | Record the published 2018 decision tree, the open tool commit, and the GPL-3.0 licence; map the 21 VRI attributes and the LiDAR canopy overrides; decide whether the current BCWS version is an optional benchmark. | Start with the open tool; do not wait for BCWS permission. |
 | P1.5 Priority rule | Define the 10-class FBP and two-class WUI priority rule, with at least two alternatives. | Replace the provisional rule with a cited, approved rule; keep the provisional rule as a sensitivity comparison. |
 
 P1 exits when every open choice in `notes/scope/mental-map.md` has an accepted ADR or a named
-deferral, and the BCWS permission/version is recorded.
+deferral, and the open fuel-typing tool commit and licence are recorded.
 
 ## 7. Decision
 

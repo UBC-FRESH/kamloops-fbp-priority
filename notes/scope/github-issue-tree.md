@@ -40,7 +40,7 @@ tokens are recorded in the repository.
 | P1.1 | #9 | P1.1: Decide the weather method and record it as an ADR | open |
 | P1.2 | #10 | P1.2: Approve the fuel crosswalk and grouped-code sensitivity plan | open |
 | P1.3 | #11 | P1.3: Decide the analysis resolution and effective-resolution table | open |
-| P1.4 | #12 | P1.4: Confirm BCWS fuel-typing algorithm access and input schema | open |
+| P1.4 | #12 | P1.4: Implement the open fuel-typing method and define the LiDAR input mapping | open |
 | P1.5 | #13 | P1.5: Define the 10-class FBP and two-class WUI priority rule | open |
 
 All five P0 child issues are linked to #1, and all five P1 child issues are linked to #8. The issue

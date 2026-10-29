@@ -219,20 +219,22 @@ screening grid (7.16 M KFC pixels) for the climate/fuel comparison, with a 30 m 
 LiDAR-derived canopy/fuel layers where the data actually supports it. The thesis should include an
 effective-resolution table and a resolution sensitivity run.
 
-### Finding 5: the BCWS fuel-typing algorithm is the critical path
+### Finding 5: the fuel-typing method is open; the current BCWS version is optional
 
 The proposal's central method is to re-run the BCWS 21-attribute fuel-typing algorithm on
-LiDAR-adjusted VRI attributes. The algorithm is not a public code library in the same sense as
-`cffdrs`; the proposal says it has been provided for the project and that permission must be
-obtained. Until that permission and the exact algorithm version are in hand, the project cannot
-produce the LiDAR-improved fuel types. It can only:
+LiDAR-adjusted VRI attributes. The method is published, not secret:
 
-- compare the provincial fuel-type layer with LiDAR-derived canopy attributes;
-- run FBP on the provincial baseline;
-- show where the baseline and LiDAR disagree.
+- Perrakis et al. (2018, BC-X-444) document the 21 VRI attributes and the decision tree.
+- Greene's `BC_CFFBPS_FuelTyping_Tool` implements the 2018 decision tree in open Python under
+  GPL-3.0; a smoke test on a mature interior pine stand returned `C-3`.
+- Baron et al. (2024, Fire Ecology) independently coded the same decision tree and showed that 58% of
+  their field plots had no suitable FBP fuel type; LiDAR can improve the canopy attributes the tree
+  depends on.
+- The provincial fuel-type layer and LidarBC point clouds are open data.
 
-That is still useful, but it is not the thesis the proposal describes. Confirm access in writing
-before January 2027. This is the number-one schedule risk.
+No permission is needed to use the published method, the open code, or the open data. The current
+BCWS operational algorithm and version are an optional benchmark, not a gate. The critical path is
+now the open LiDAR/VRI implementation and its validation, not permission.
 
 ### Finding 6: the final 10-class and WUI rule is undefined
 
@@ -295,16 +297,17 @@ not promises.
 | P5 Priority and scenarios | Mar 2027 | WUI overlay, 10-class rule, treatment assumptions, climate scenarios, sensitivity | Research questions 2 and 3 answered |
 | P6 Thesis and release | Apr 2027 | Thesis, repo release, data provenance, defense | Committee-ready |
 
-The LiDAR/VRI experiment must start by January. If BCWS algorithm access or point-cloud coverage is
-not resolved by then, the project should narrow to a two-zone comparison (IDF and PP) rather than
-pretend the ICH coverage is adequate.
+The LiDAR/VRI experiment must start by January. Point-cloud coverage is the remaining data limit; if
+ICH coverage is inadequate, narrow to IDF and PP rather than pretend. The open fuel-typing decision
+tree is not a blocker.
 
 ## 8. The boss: definition of done
 
 - [ ] Data provenance and licences recorded for every layer; raw data reproducible by script.
 - [ ] A documented weather method that resolves the ClimateBC wind/daily gap.
 - [ ] Baseline FBP outputs: ROS, HFI, flame length, fuel consumption, CFB, fire type.
-- [ ] A LiDAR-improved fuel-type layer for at least IDF and PP, validated against VRI and PSP.
+- [ ] A LiDAR-improved fuel-type layer for at least IDF and PP, validated against VRI, fire
+  perimeters, and expert review (PSP if shared).
 - [ ] A quantitative baseline-vs-LiDAR comparison of fire behaviour.
 - [ ] A WUI overlay and a written 10-class priority rule.
 - [ ] Sensitivity analysis: grouped fuel codes, wind, weather scenario, resolution, class breaks.
@@ -319,8 +322,10 @@ pretend the ICH coverage is adequate.
 2. **LiDAR product and coverage claim.** Which LidarBC product defines "coverage"? Recommendation:
    report point-cloud coverage separately from project/DSM coverage, and replace "54%" with the
    product-specific table.
-3. **BCWS algorithm access.** Confirm the exact algorithm version, permission, and input schema.
-   Recommendation: make this a written gate before P3.
+3. **Fuel-typing method.** Use the published 2018 decision tree and the open
+   `BC_CFFBPS_FuelTyping_Tool` as the primary method. Recommendation: no permission gate; record the
+   tool commit and GPL-3.0 licence, and treat the current BCWS operational version as an optional
+   benchmark.
 4. **Analysis resolution.** Recommendation: 100 m for the method comparison, 30 m only for the
    LiDAR core; include a resolution sensitivity run.
 5. **Priority rule.** Recommendation: adopt an explicit HFI × fire-type × WUI matrix with citations,
@@ -332,7 +337,7 @@ pretend the ICH coverage is adequate.
 
 - No LiDAR point-cloud processing, canopy metrics, or VRI/LiDAR model.
 - No PSP validation.
-- No BCWS fuel-typing algorithm run.
+- No open fuel-typing decision tree run yet; the 2018 tool is available and smoke-tested.
 - No climate-change scenarios.
 - No final 10-class/WUI rule; the prototype's priorities are provisional.
 - No 30 m full-KFC run; the 100 m run is the method prototype.
