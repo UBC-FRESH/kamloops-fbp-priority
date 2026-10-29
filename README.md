@@ -15,6 +15,7 @@ Phase 0 (bootstrap and feasibility speed run) is in review via
 `feature/p0-bootstrap`. The Phase 0 parent issue is #1 and the task issues are #2-#6. The work is not
 merged to `main` until the close-out is approved. The issue map is in
 `notes/scope/github-issue-tree.md`; the close-out evidence is in `notes/reports/p0-closeout.md`.
+Documentation is published at https://ubc-fresh.github.io/kamloops-fbp-priority/.
 
 The scope, data audit, findings, and 18-month timeline are in
 [`notes/scope/mental-map.md`](notes/scope/mental-map.md). Read that first.
@@ -109,5 +110,5 @@ writes a manifest under `data/raw/`.
 
 ## Licence
 
-Choose and add a code licence before the first public release. The data licences are separate and
-must be recorded in the thesis appendix.
+The code is MIT-licensed; see `LICENSE`. The data licences are separate and must be recorded in the
+thesis appendix.

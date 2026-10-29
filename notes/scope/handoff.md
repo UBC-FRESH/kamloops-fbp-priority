@@ -17,7 +17,8 @@ Dashboard: green (lint, format, strict types, tests, validator, docs)
 
 ## GitHub (resolved)
 
-The private repository now exists at https://github.com/UBC-FRESH/kamloops-fbp-priority. `main` has
+The repository is public at https://github.com/UBC-FRESH/kamloops-fbp-priority, with documentation at
+https://ubc-fresh.github.io/kamloops-fbp-priority/. `main` has
 the seed commit and `feature/p0-bootstrap` has the Phase 0 work. The parent issue is #1; the child
 issues are #2-#6 and are linked as sub-issues. P0.5 (#6) is complete; P0.1-P0.4 remain open until
 the Phase 0 close-out pull request #7 is approved. The close-out report is

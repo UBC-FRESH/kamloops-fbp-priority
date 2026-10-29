@@ -2,7 +2,8 @@
 
 Status: created and verified 2026-10-28; close-out queued 2026-10-29.
 
-- Repository: https://github.com/UBC-FRESH/kamloops-fbp-priority (private)
+- Repository: https://github.com/UBC-FRESH/kamloops-fbp-priority (public since 2026-10-29)
+- Documentation: https://ubc-fresh.github.io/kamloops-fbp-priority/
 - Default branch: `main`
 - Working branch: `feature/p0-bootstrap`
 - Close-out pull request: #7
@@ -34,7 +35,7 @@ tokens are recorded in the repository.
 | P0.2 | #3 | P0.2: Fetch and audit the named datasets | open, pr-open |
 | P0.3 | #4 | P0.3: Build the 100 m baseline FBP chain | open, pr-open |
 | P0.4 | #5 | P0.4: Write the scope, scale, and shape map | open, pr-open |
-| P0.5 | #6 | P0.5: Create the private repository and Phase 0 issues | closed, complete |
+| P0.5 | #6 | P0.5: Create the repository and Phase 0 issues | closed, complete |
 
 All five child issues are linked to #1 as sub-issues. The issue bodies are kept in
 `notes/scope/issues/` and were posted with `--body-file`.
