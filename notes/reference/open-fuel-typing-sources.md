@@ -113,6 +113,28 @@ Scripts: `analysis/lidar_canopy_metrics.py`, `analysis/apply_lidar_to_vri.py`. T
 `docs/tables/lidar_fuel_type_changes_three_zones.csv`,
 `docs/tables/lidar_fuel_type_change_summary.csv`, and the per-zone CSVs.
 
+## FBP pilot on the changed polygons
+
+The six changed polygons were run through `cffdrs::fbp` with the existing 100 m weather and terrain
+bands sampled at their centroids. The baseline and LiDAR rows use the same weather, terrain, and
+location; only the fuel type and its Table 7 crown defaults differ.
+
+| Transition | n | ROS change | HFI change | Crown fire |
+| --- | ---: | ---: | ---: | --- |
+| O-1b -> C-7 | 4 | **-84.8%** | **+33.9%** | none |
+| C-5 -> C-3 | 1 | **+267.6%** | **+293.6%** | none |
+| C-7 -> C-3 | 1 | **+29.8%** | **+85.0%** | none |
+
+The direction depends on the transition: converting open grass to C-7 lowers ROS but raises HFI;
+converting C-5 or C-7 to C-3 raises both. All six remained surface fire under the mean-summer
+weather; no crown fire. This is a six-polygon pilot, not a zone-wide result, but it shows that the
+LiDAR-induced fuel-type changes are large enough to matter for the priority map.
+
+Scripts: `analysis/prepare_lidar_fbp_points.py`, `analysis/run_lidar_fbp_points.R`. Tables:
+`docs/tables/lidar_fbp_changed_polygons.csv`,
+`docs/tables/lidar_fbp_changed_polygons_paired.csv`, and
+`docs/tables/lidar_fbp_change_summary.csv`.
+
 ## What this changes
 
 - The provincial decision tree can be run without BCWS permission.

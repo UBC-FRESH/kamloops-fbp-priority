@@ -1,0 +1,4 @@
+transition,n,ROS_base_mean,ROS_lidar_mean,ROS_pct_mean,HFI_base_mean,HFI_lidar_mean,HFI_pct_mean,crown_base,crown_lidar
+C-5 -> C-3,1,0.23,0.83,267.6,269.0,1059.0,293.6,0,0
+C-7 -> C-3,1,2.16,2.8,29.8,2004.0,3708.0,85.0,0,0
+O-1b -> C-7,4,10.16,1.54,-84.8,1067.0,1429.0,33.9,0,0
