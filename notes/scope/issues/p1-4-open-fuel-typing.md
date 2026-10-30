@@ -67,16 +67,17 @@ The same three sample boxes are fully covered by LidarBC point-cloud tiles at 8 
 tiles/2024; IDF 15 tiles/2017, 2024, 2025; PP 22 tiles/2017, 2024). Candidates are in
 `docs/tables/lidar_candidates_three_zones.csv`; the P3 LiDAR pilot can use these boxes directly.
 
-LiDAR pilot: one tile per zone was processed to 10 m canopy metrics (cover, height percentiles). The
-LiDAR mean cover and p95 height replaced the VRI crown closure and height, then the decision tree was
-rerun. Fuel-type changes: ICH 1/43 (C-5 to C-3), IDF 5/31 (four O-1b to C-7, one C-7 to C-3), PP 0/24.
-This is a one-tile-per-zone pilot, not a zone-wide result; the next step is all tiles for the full
-sample boxes and the FBP comparison.
+LiDAR full-box pilot: nine tiles per zone (27 tiles, 89–95% box coverage) were processed to 10 m
+canopy metrics. The LiDAR mean cover and p95 height replaced VRI crown closure and height, then the
+decision tree was rerun. Fuel-type changes: ICH 6/158 (3.8%), IDF 10/116 (8.6%), PP 1/86 (1.2%);
+17 of 360 comparable polygons (4.7%) changed.
 
-FBP pilot: the six changed polygons were run through `cffdrs::fbp` with the existing weather and
-terrain. O-1b to C-7: ROS -84.8%, HFI +33.9% (n=4). C-5 to C-3: ROS +267.6%, HFI +293.6% (n=1).
-C-7 to C-3: ROS +29.8%, HFI +85.0% (n=1). All remained surface fire under mean-summer weather.
-Tables: `docs/tables/lidar_fbp_change_summary.csv` and `docs/tables/lidar_fbp_changed_polygons.csv`.
+FBP: the 17 changed polygons were run through `cffdrs::fbp` with the existing weather and terrain.
+O-1b to C-7 (n=6): ROS -84.9%, HFI +33.1%. O-1b to C-3 (n=3): ROS -79.8%, HFI +151.2%. C-5 to C-3
+(n=3): ROS +291.3%, HFI +320.2%. All 17 remained surface fire under mean-summer weather. Applying the
+provisional WUI priority rule changed the priority class for 6 of 17 polygons: 5 in IDF, 1 in PP;
+ICH changes are outside the WUI. Tables: `docs/tables/lidar_fuel_type_change_summary_full.csv`,
+`docs/tables/lidar_fbp_change_summary_full.csv`, `docs/tables/lidar_priority_changes_full.csv`.
 
 Risks:
 

@@ -24,7 +24,7 @@ import rasterio
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from kamloops_fbp.fuel import convert_bc_fuel
+from kamloops_fbp.fuel import R_FUEL_NAMES, convert_bc_fuel
 
 ZONES = ("ICH", "IDF", "PP")
 BAND_NAMES = (
@@ -61,7 +61,7 @@ def _row(
         "ZONE": zone,
         "FEATURE_ID": feature_id,
         "SCENARIO": scenario,
-        "FUELTYPE": fuel_type,
+        "FUELTYPE": R_FUEL_NAMES[conversion.r_code],
         "FFMC": bands["FFMC"],
         "BUI": bands["BUI"],
         "WS": bands["WS"],
@@ -85,6 +85,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--stack", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--suffix", type=str, default="", help="Suffix for the zone GPKG names.")
     args = parser.parse_args()
 
     rows: list[dict[str, object]] = []
@@ -92,7 +93,7 @@ def main() -> int:
         descriptions = [str(desc).upper() for desc in src.descriptions]
         index = {name: descriptions.index(name) + 1 for name in BAND_NAMES}
         for zone in ZONES:
-            path = Path("data/interim/zone_samples") / f"{zone}_vri_lidar_fuel.gpkg"
+            path = Path("data/interim/zone_samples") / f"{zone}_vri_lidar_fuel{args.suffix}.gpkg"
             frame = gpd.read_file(path)
             changed = frame[frame["CHANGED"].fillna(False)].copy()
             if changed.empty:

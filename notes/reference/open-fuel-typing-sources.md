@@ -82,58 +82,64 @@ The three sample boxes are fully covered by LidarBC point-cloud tiles at 8 point
 The candidate tiles are listed in `docs/tables/lidar_candidates_three_zones.csv`. This means the
 same boxes can carry the P3 LiDAR pilot without changing the study design.
 
-## LiDAR pilot (one tile per zone)
+## Full-box LiDAR pilot (nine tiles per zone)
 
-One LAZ tile per zone was processed on a 10 m grid with a two-pass method: class-2 ground returns
-build a nearest-filled ground surface, then first returns give canopy cover and height percentiles.
-The tile footprints cover only part of each 4 km sample box, so this is a pilot, not the full box.
+Nine nearest LAZ tiles per zone were processed on a 10 m grid with a two-pass method: class-2 ground
+returns build a nearest-filled ground surface, then first returns give canopy cover and height
+percentiles. The 27 tiles cover 89–95% of each 4 km sample box.
 
 Cell-level medians:
 
 | Zone | Canopy cover | Height p50 | Height p95 |
 | --- | ---: | ---: | ---: |
-| ICH | 0.95 | 10 m | 17 m |
-| IDF | 0.60 | 3 m | 5 m |
-| PP | 0.75 | 6 m | 14 m |
+| ICH | 0.97 | 11 m | 23 m |
+| IDF | 0.60 | 3 m | 6 m |
+| PP | 0.59 | 6 m | 14 m |
 
 The LiDAR mean cover replaced `CROWN_CLOSURE` and the LiDAR mean p95 replaced `PROJ_HEIGHT_1`;
 all other VRI attributes stayed unchanged. Rerunning the published decision tree changed:
 
 | Zone | Comparable polygons | Fuel-type changes | Transitions |
 | --- | ---: | ---: | --- |
-| ICH | 43 | 1 (2.3%) | C-5 -> C-3 |
-| IDF | 31 | 5 (16.1%) | O-1b -> C-7 (4), C-7 -> C-3 (1) |
-| PP | 24 | 0 | none |
+| ICH | 158 | 6 (3.8%) | C-5 -> C-3 (3), D-1 -> C-3 (1), D-1 -> C-5 (2) |
+| IDF | 116 | 10 (8.6%) | O-1b -> C-7 (5), O-1b -> C-3 (3), C-7 -> C-3 (1), C-7 -> O-1b (1) |
+| PP | 86 | 1 (1.2%) | O-1b -> C-7 (1) |
+| **All** | **360** | **17 (4.7%)** | — |
 
-The IDF result is the expected signal: LiDAR detects canopy structure in stands the VRI calls open,
-so four O-1b polygons become C-7. This is a pilot on one tile per zone, not a zone-wide result. It
-shows the LiDAR-adjusted decision tree works and produces fuel-type changes worth testing at scale.
+The IDF signal is the expected one: LiDAR detects canopy structure in stands the VRI calls open, so
+five O-1b polygons become C-7 and three become C-3. ICH changes are smaller; PP barely changes in
+this sample.
 
-Scripts: `analysis/lidar_canopy_metrics.py`, `analysis/apply_lidar_to_vri.py`. Tables:
-`docs/tables/lidar_fuel_type_changes_three_zones.csv`,
-`docs/tables/lidar_fuel_type_change_summary.csv`, and the per-zone CSVs.
+## FBP and priority results
 
-## FBP pilot on the changed polygons
-
-The six changed polygons were run through `cffdrs::fbp` with the existing 100 m weather and terrain
-bands sampled at their centroids. The baseline and LiDAR rows use the same weather, terrain, and
+The 17 changed polygons were run through `cffdrs::fbp` with the existing 100 m weather and terrain
+bands sampled at their centroids. Baseline and LiDAR rows share the same weather, terrain, and
 location; only the fuel type and its Table 7 crown defaults differ.
 
 | Transition | n | ROS change | HFI change | Crown fire |
 | --- | ---: | ---: | ---: | --- |
-| O-1b -> C-7 | 4 | **-84.8%** | **+33.9%** | none |
-| C-5 -> C-3 | 1 | **+267.6%** | **+293.6%** | none |
+| O-1b -> C-7 | 6 | **-84.9%** | **+33.1%** | none |
+| O-1b -> C-3 | 3 | **-79.8%** | **+151.2%** | none |
+| C-5 -> C-3 | 3 | **+291.3%** | **+320.2%** | none |
+| D-1 -> C-5 | 2 | **-69.5%** | **-14.2%** | none |
 | C-7 -> C-3 | 1 | **+29.8%** | **+85.0%** | none |
+| C-7 -> O-1b | 1 | **+552.1%** | **-26.3%** | none |
+| D-1 -> C-3 | 1 | **+7.1%** | **+222.1%** | none |
 
-The direction depends on the transition: converting open grass to C-7 lowers ROS but raises HFI;
-converting C-5 or C-7 to C-3 raises both. All six remained surface fire under the mean-summer
-weather; no crown fire. This is a six-polygon pilot, not a zone-wide result, but it shows that the
-LiDAR-induced fuel-type changes are large enough to matter for the priority map.
+All 17 remained surface fire under the mean-summer weather; no crown fire. The median change is
+about **-78% ROS** and **+35% HFI**, but the direction and magnitude depend on the transition.
 
-Scripts: `analysis/prepare_lidar_fbp_points.py`, `analysis/run_lidar_fbp_points.R`. Tables:
-`docs/tables/lidar_fbp_changed_polygons.csv`,
-`docs/tables/lidar_fbp_changed_polygons_paired.csv`, and
-`docs/tables/lidar_fbp_change_summary.csv`.
+The provisional priority rule was applied with the WUI class at each polygon centroid. Six of the 17
+changed polygons changed priority class: five in IDF and one in PP. The ICH changes are outside the
+WUI, so their priority stays zero. Ten of the 17 are in the WUI risk class; seven are outside.
+
+Scripts: `analysis/lidar_canopy_metrics.py`, `analysis/apply_lidar_to_vri.py`,
+`analysis/prepare_lidar_fbp_points.py`, `analysis/run_lidar_fbp_points.R`. Tables:
+`docs/tables/lidar_fuel_type_changes_full.csv`,
+`docs/tables/lidar_fuel_type_change_summary_full.csv`,
+`docs/tables/lidar_fbp_change_summary_full.csv`,
+`docs/tables/lidar_fbp_changed_polygons_full.csv`, and
+`docs/tables/lidar_priority_changes_full.csv`.
 
 ## What this changes
 
