@@ -82,6 +82,37 @@ The three sample boxes are fully covered by LidarBC point-cloud tiles at 8 point
 The candidate tiles are listed in `docs/tables/lidar_candidates_three_zones.csv`. This means the
 same boxes can carry the P3 LiDAR pilot without changing the study design.
 
+## LiDAR pilot (one tile per zone)
+
+One LAZ tile per zone was processed on a 10 m grid with a two-pass method: class-2 ground returns
+build a nearest-filled ground surface, then first returns give canopy cover and height percentiles.
+The tile footprints cover only part of each 4 km sample box, so this is a pilot, not the full box.
+
+Cell-level medians:
+
+| Zone | Canopy cover | Height p50 | Height p95 |
+| --- | ---: | ---: | ---: |
+| ICH | 0.95 | 10 m | 17 m |
+| IDF | 0.60 | 3 m | 5 m |
+| PP | 0.75 | 6 m | 14 m |
+
+The LiDAR mean cover replaced `CROWN_CLOSURE` and the LiDAR mean p95 replaced `PROJ_HEIGHT_1`;
+all other VRI attributes stayed unchanged. Rerunning the published decision tree changed:
+
+| Zone | Comparable polygons | Fuel-type changes | Transitions |
+| --- | ---: | ---: | --- |
+| ICH | 43 | 1 (2.3%) | C-5 -> C-3 |
+| IDF | 31 | 5 (16.1%) | O-1b -> C-7 (4), C-7 -> C-3 (1) |
+| PP | 24 | 0 | none |
+
+The IDF result is the expected signal: LiDAR detects canopy structure in stands the VRI calls open,
+so four O-1b polygons become C-7. This is a pilot on one tile per zone, not a zone-wide result. It
+shows the LiDAR-adjusted decision tree works and produces fuel-type changes worth testing at scale.
+
+Scripts: `analysis/lidar_canopy_metrics.py`, `analysis/apply_lidar_to_vri.py`. Tables:
+`docs/tables/lidar_fuel_type_changes_three_zones.csv`,
+`docs/tables/lidar_fuel_type_change_summary.csv`, and the per-zone CSVs.
+
 ## What this changes
 
 - The provincial decision tree can be run without BCWS permission.

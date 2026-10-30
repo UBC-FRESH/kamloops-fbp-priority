@@ -67,6 +67,12 @@ The same three sample boxes are fully covered by LidarBC point-cloud tiles at 8 
 tiles/2024; IDF 15 tiles/2017, 2024, 2025; PP 22 tiles/2017, 2024). Candidates are in
 `docs/tables/lidar_candidates_three_zones.csv`; the P3 LiDAR pilot can use these boxes directly.
 
+LiDAR pilot: one tile per zone was processed to 10 m canopy metrics (cover, height percentiles). The
+LiDAR mean cover and p95 height replaced the VRI crown closure and height, then the decision tree was
+rerun. Fuel-type changes: ICH 1/43 (C-5 to C-3), IDF 5/31 (four O-1b to C-7, one C-7 to C-3), PP 0/24.
+This is a one-tile-per-zone pilot, not a zone-wide result; the next step is all tiles for the full
+sample boxes and the FBP comparison.
+
 Risks:
 
 The open tool implements the 2018 decision tree, not the current BCWS version. VRI attributes are
